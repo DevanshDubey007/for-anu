@@ -1110,6 +1110,93 @@ img { max-width: 100%; height: auto; display: block; }
    ============================================ */
 @media (max-width: 600px) {
 
+    /* --- Vibrant Color Boost for Mobile Screens --- */
+    :root {
+        --bg-dark: #1c1410;
+        --bg-warm: #2e2520;
+        --bg-card: #3a302a;
+        --rose-gold: #d4a8a8;
+        --rose-gold-light: #e0bfbf;
+        --gold: #e0b080;
+        --gold-light: #f0d4a8;
+        --deep-rose: #f0c0d8;
+        --text-light: #faf0e8;
+        --text-muted: #d0c0b4;
+        --shadow-glow: 0 0 40px rgba(220, 170, 170, 0.2);
+    }
+
+    /* Brighter hero background */
+    .hero {
+        background: radial-gradient(ellipse at 30% 20%, rgba(220, 170, 170, 0.14), transparent 50%),
+                    radial-gradient(ellipse at 70% 80%, rgba(224, 176, 128, 0.1), transparent 50%),
+                    var(--bg-dark);
+    }
+
+    /* More vivid section backgrounds */
+    .moments {
+        background: radial-gradient(ellipse at 50% 30%, rgba(220, 170, 170, 0.08), transparent 50%),
+                    var(--bg-dark);
+    }
+
+    .letter-section {
+        background: radial-gradient(ellipse at 50% 50%, rgba(224, 176, 128, 0.08), transparent 50%),
+                    var(--bg-dark);
+    }
+
+    .story-section {
+        background: radial-gradient(ellipse at 30% 50%, rgba(220, 170, 170, 0.08), transparent 50%),
+                    var(--bg-dark);
+    }
+
+    .love-section {
+        background: radial-gradient(ellipse at 70% 50%, rgba(224, 176, 128, 0.08), transparent 50%),
+                    var(--bg-dark);
+    }
+
+    /* Brighter polaroid shadows & borders */
+    .polaroid-inner {
+        box-shadow: 4px 6px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(220, 170, 170, 0.06);
+    }
+
+    /* Brighter timeline glow */
+    .timeline-line {
+        opacity: 0.6;
+    }
+
+    .timeline-marker {
+        box-shadow: 0 0 18px rgba(220, 170, 170, 0.3);
+    }
+
+    /* Brighter love cards */
+    .love-card {
+        border-color: rgba(220, 170, 170, 0.1);
+    }
+
+    /* Brighter footer */
+    .footer {
+        background: linear-gradient(180deg, var(--bg-dark), #221a14);
+        border-top: 1px solid rgba(220, 170, 170, 0.1);
+    }
+
+    /* More visible floating elements on mobile */
+    .floating-heart {
+        color: var(--rose-gold-light);
+    }
+
+    .floating-sparkle {
+        color: var(--gold-light);
+    }
+
+    /* Stronger hero shapes */
+    .shape {
+        opacity: 0.07;
+    }
+
+    /* Brighter hero doodles */
+    .hero-doodles .doodle {
+        opacity: 0.15;
+    }
+
     /* --- General --- */
     body {
         padding-bottom: 60px;
