@@ -3,25 +3,25 @@
    ============================================ */
 
 :root {
-    --bg-dark: #1a1612;
-    --bg-warm: #2a2320;
-    --bg-card: #342c28;
+    --bg-dark: #1a1410;
+    --bg-warm: #2e2420;
+    --bg-card: #382e28;
     --blush: #FDE8EF;
     --blush-soft: #fef0f5;
     --ivory: #FFF8F0;
     --cream: #f5ebe0;
-    --rose-gold: #C9A0A0;
-    --rose-gold-light: #d4b3b3;
-    --gold: #d4a574;
-    --gold-light: #e8c9a0;
-    --deep-rose: #e8b4c8;
+    --rose-gold: #e0a8a8;
+    --rose-gold-light: #ecc0c0;
+    --gold: #e8b878;
+    --gold-light: #f4d8a8;
+    --deep-rose: #f0b8d0;
     --deep-rose-dark: #7B3F5E;
     --parchment: #FDF5E6;
     --white: #ffffff;
-    --text-light: #f5ebe0;
-    --text-muted: #b8a99a;
+    --text-light: #fff4ec;
+    --text-muted: #d4c0b0;
     --shadow-warm: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 30px rgba(201, 160, 160, 0.15);
+    --shadow-glow: 0 0 40px rgba(224, 168, 168, 0.2);
     --shadow-polaroid: 4px 6px 20px rgba(0, 0, 0, 0.4);
     --radius: 16px;
     --radius-sm: 8px;
@@ -74,10 +74,16 @@ img { max-width: 100%; height: auto; display: block; }
 .title-script {
     font-family: var(--font-script);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--gold-light), var(--rose-gold), var(--deep-rose));
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--rose-gold) 50%, var(--deep-rose) 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: textShimmer 4s linear infinite;
+}
+
+@keyframes textShimmer {
+    to { background-position: 200% center; }
 }
 
 .section-subtitle {
@@ -285,9 +291,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @keyframes shapeFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -30px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.95); }
+    0%, 100% { transform: translate(0, 0) scale(1); filter: blur(60px) brightness(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); filter: blur(70px) brightness(1.2); }
+    66% { transform: translate(-20px, 20px) scale(0.95); filter: blur(50px) brightness(0.9); }
 }
 
 .hero-content {
@@ -856,7 +862,13 @@ img { max-width: 100%; height: auto; display: block; }
     z-index: 2;
     font-size: 12px;
     color: var(--rose-gold);
-    box-shadow: 0 0 15px rgba(201, 160, 160, 0.2);
+    box-shadow: 0 0 15px rgba(224, 168, 168, 0.3);
+    animation: markerPulse 2s infinite alternate;
+}
+
+@keyframes markerPulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(224, 168, 168, 0.3); }
+    100% { transform: scale(1.1); box-shadow: 0 0 25px rgba(224, 168, 168, 0.6); }
 }
 
 .timeline-item--left .timeline-marker { right: -16px; }
@@ -922,9 +934,17 @@ img { max-width: 100%; height: auto; display: block; }
 .love-card::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(201, 160, 160, 0.03), transparent);
+    background: linear-gradient(135deg, rgba(224, 168, 168, 0.08), transparent, rgba(224, 168, 168, 0.08));
+    background-size: 200% 200%;
     opacity: 0;
     transition: opacity var(--transition);
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .love-card:hover::before { opacity: 1; }
