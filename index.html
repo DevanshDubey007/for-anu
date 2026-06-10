@@ -7,19 +7,45 @@
     <title>For Anu 💕</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Floating Hearts / Petals Background -->
+    <!-- Cursor Heart Trail -->
+    <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+    <!-- Floating Elements -->
     <div class="floating-elements" id="floatingElements" aria-hidden="true"></div>
+
+    <!-- Click Burst Container -->
+    <div class="click-burst-container" id="clickBurst" aria-hidden="true"></div>
+
+    <!-- ============ INTRO OVERLAY ============ -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-content">
+            <div class="intro-heart">💕</div>
+            <h2 class="intro-text">Open Your Gift</h2>
+            <p class="intro-sub">Tap anywhere to begin</p>
+            <div class="intro-sparkles" aria-hidden="true"></div>
+        </div>
+    </div>
 
     <!-- ============ SECTION 1: HERO ============ -->
     <section id="hero" class="hero">
+        <div class="hero-bg-shapes" aria-hidden="true">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
         <div class="hero-content">
-            <h1 class="hero-title">For Anu 💕</h1>
-            <p class="hero-subtitle">Every moment with you is a world I never want to leave</p>
+            <div class="hero-badge">✨ a gift just for you ✨</div>
+            <h1 class="hero-title">
+                <span class="title-line">For</span>
+                <span class="title-line title-name">Anu</span>
+                <span class="title-heart">💕</span>
+            </h1>
+            <p class="hero-subtitle" id="typewriter"></p>
             <div class="hero-heart" aria-hidden="true">
                 <svg viewBox="0 0 100 100" class="pulse-heart">
                     <path d="M50 88 C25 65, 0 50, 0 30 C0 13, 13 0, 30 0 C40 0, 48 5, 50 15 C52 5, 60 0, 70 0 C87 0, 100 13, 100 30 C100 50, 75 65, 50 88Z" fill="url(#heartGrad)"/>
@@ -31,8 +57,15 @@
                     </defs>
                 </svg>
             </div>
+            <div class="hero-doodles" aria-hidden="true">
+                <span class="doodle doodle-star">⭐</span>
+                <span class="doodle doodle-heart">♡</span>
+                <span class="doodle doodle-sparkle">✦</span>
+                <span class="doodle doodle-flower">🌸</span>
+            </div>
         </div>
         <div class="scroll-arrow" id="scrollArrow" aria-label="Scroll down">
+            <span class="scroll-text">scroll down</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
@@ -54,7 +87,9 @@
             </svg>
         </button>
         <div class="music-info">
-            <span class="music-note">♪</span>
+            <div class="music-equalizer" id="musicEq" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+            </div>
             <span class="music-title">Tum Se Hi</span>
             <span class="music-artist">— Jab We Met</span>
         </div>
@@ -63,58 +98,84 @@
         </div>
     </div>
 
-    <!-- ============ SECTION 2: OUR MOMENTS ============ -->
+    <!-- ============ SECTION 2: OUR MOMENTS (Scrapbook Gallery) ============ -->
     <section id="moments" class="section moments">
         <div class="container">
-            <h2 class="section-title reveal">Our Moments 📸</h2>
-            <p class="section-subtitle reveal">Every picture tells a piece of our story</p>
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-item--tall reveal" data-index="0">
-                    <img src="photo_1.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <h2 class="section-title reveal">
+                <span class="title-script">Our Moments</span> 📸
+            </h2>
+            <p class="section-subtitle reveal">every picture holds a piece of my heart</p>
+            <div class="scrapbook">
+                <div class="polaroid polaroid-1 reveal-scatter" data-index="0" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_1.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">us 🤍</p>
                     </div>
                 </div>
-                <div class="gallery-item reveal" data-index="1">
-                    <img src="photo_2.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-2 reveal-scatter" data-index="1" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_2.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">cuties 💕</p>
                     </div>
                 </div>
-                <div class="gallery-item reveal" data-index="2">
-                    <img src="photo_3.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-3 reveal-scatter" data-index="2" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_3.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">ride or die 🏍️</p>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item--wide reveal" data-index="3">
-                    <img src="photo_4.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-4 reveal-scatter" data-index="3" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_4.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">my whole world 🌍</p>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item--tall reveal" data-index="4">
-                    <img src="photo_5.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-5 reveal-scatter" data-index="4" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_5.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">our dance 💃</p>
                     </div>
                 </div>
-                <div class="gallery-item reveal" data-index="5">
-                    <img src="photo_6.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-6 reveal-scatter" data-index="5" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_6.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">those eyes ✨</p>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item--wide reveal" data-index="6">
-                    <img src="photo_7.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-7 reveal-scatter" data-index="6" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_7.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">gorgeous 😍</p>
                     </div>
                 </div>
-                <div class="gallery-item reveal" data-index="7">
-                    <img src="photo_8.jpg" alt="Our moment together" loading="lazy">
-                    <div class="gallery-overlay">
-                        <svg class="gallery-heart" viewBox="0 0 24 24" fill="#fff"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="polaroid polaroid-8 reveal-scatter" data-index="7" data-tilt>
+                    <div class="polaroid-inner">
+                        <div class="polaroid-tape" aria-hidden="true"></div>
+                        <div class="polaroid-img">
+                            <img src="photo_8.jpg" alt="Our moment together" loading="lazy">
+                        </div>
+                        <p class="polaroid-caption">forever 🤞</p>
                     </div>
                 </div>
             </div>
@@ -134,10 +195,13 @@
     <!-- ============ SECTION 3: A LETTER FOR YOU ============ -->
     <section id="letter" class="section letter-section">
         <div class="container">
-            <h2 class="section-title reveal">A Letter For You 💌</h2>
+            <h2 class="section-title reveal">
+                <span class="title-script">A Letter For You</span> 💌
+            </h2>
             <div class="letter-card reveal">
-                <div class="letter-decoration letter-decoration--top" aria-hidden="true">
-                    <svg viewBox="0 0 200 20"><path d="M0,10 Q50,0 100,10 Q150,20 200,10" stroke="#C9A0A0" stroke-width="1" fill="none" opacity="0.5"/></svg>
+                <div class="letter-fold" aria-hidden="true"></div>
+                <div class="letter-stamp" aria-hidden="true">
+                    <span>LOVE</span>
                 </div>
                 <div class="letter-body">
                     <p class="letter-greeting">My dearest Anu,</p>
@@ -156,25 +220,22 @@
                         </svg>
                     </div>
                 </div>
-                <div class="letter-decoration letter-decoration--bottom" aria-hidden="true">
-                    <svg viewBox="0 0 200 20"><path d="M0,10 Q50,20 100,10 Q150,0 200,10" stroke="#C9A0A0" stroke-width="1" fill="none" opacity="0.5"/></svg>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ SECTION 4: OUR STORY (TIMELINE) ============ -->
+    <!-- ============ SECTION 4: OUR STORY (Timeline) ============ -->
     <section id="story" class="section story-section">
         <div class="container">
-            <h2 class="section-title reveal">Our Story 🌸</h2>
-            <p class="section-subtitle reveal">The milestones that made us, us</p>
+            <h2 class="section-title reveal">
+                <span class="title-script">Our Story</span> 🌸
+            </h2>
+            <p class="section-subtitle reveal">the chapters of us</p>
             <div class="timeline">
                 <div class="timeline-line" aria-hidden="true"></div>
 
                 <div class="timeline-item timeline-item--left reveal-left">
-                    <div class="timeline-marker" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="#C9A0A0" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true">♥</div>
                     <div class="timeline-card">
                         <span class="timeline-date">The Day We Met</span>
                         <p class="timeline-text">The universe conspired to bring us together, and from that very first moment, I knew my life was about to change forever. Your smile caught me off guard — and I never recovered.</p>
@@ -182,9 +243,7 @@
                 </div>
 
                 <div class="timeline-item timeline-item--right reveal-right">
-                    <div class="timeline-marker" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="#C9A0A0" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true">♥</div>
                     <div class="timeline-card">
                         <span class="timeline-date">Our First Conversation</span>
                         <p class="timeline-text">Hours felt like minutes. We talked and talked, and suddenly the world around us faded. It was just you and me — and that was more than enough.</p>
@@ -192,9 +251,7 @@
                 </div>
 
                 <div class="timeline-item timeline-item--left reveal-left">
-                    <div class="timeline-marker" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="#C9A0A0" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true">♥</div>
                     <div class="timeline-card">
                         <span class="timeline-date">When I Knew</span>
                         <p class="timeline-text">There was this quiet moment — nothing extraordinary was happening — but I looked at you and thought, "This is the person I want beside me for everything." And I've never stopped feeling that way.</p>
@@ -202,9 +259,7 @@
                 </div>
 
                 <div class="timeline-item timeline-item--right reveal-right">
-                    <div class="timeline-marker" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="#C9A0A0" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true">♥</div>
                     <div class="timeline-card">
                         <span class="timeline-date">Our First Trip Together</span>
                         <p class="timeline-text">Adventures with you are my favourite kind. Every road trip, every new place, every silly moment in between — they all became our most treasured memories.</p>
@@ -212,9 +267,7 @@
                 </div>
 
                 <div class="timeline-item timeline-item--left reveal-left">
-                    <div class="timeline-marker" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="#C9A0A0" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true">♥</div>
                     <div class="timeline-card">
                         <span class="timeline-date">Today & Forever</span>
                         <p class="timeline-text">Here we are — still laughing at the same silly jokes, still finding new reasons to fall in love. This isn't just our story so far. It's only the beginning.</p>
@@ -227,38 +280,40 @@
     <!-- ============ SECTION 5: WHY I LOVE YOU ============ -->
     <section id="whyilove" class="section love-section">
         <div class="container">
-            <h2 class="section-title reveal">Why I Love You 💛</h2>
-            <p class="section-subtitle reveal">There are a million reasons, but here are a few</p>
+            <h2 class="section-title reveal">
+                <span class="title-script">Why I Love You</span> 💛
+            </h2>
+            <p class="section-subtitle reveal">there are a million reasons, but here are a few</p>
             <div class="love-grid">
                 <div class="love-card reveal-stagger" style="--stagger: 0">
                     <div class="love-icon" aria-hidden="true">✨</div>
                     <h3>Your Smile</h3>
-                    <p>It lights up every room and makes even the worst days feel like the best ones. Your smile is my favourite sight in the whole world.</p>
+                    <p>It lights up every room and makes even the worst days feel like the best ones.</p>
                 </div>
                 <div class="love-card reveal-stagger" style="--stagger: 1">
                     <div class="love-icon" aria-hidden="true">🤗</div>
                     <h3>Your Warmth</h3>
-                    <p>The way you care for everyone around you — so deeply and selflessly. Being loved by you feels like being wrapped in sunshine.</p>
+                    <p>Being loved by you feels like being wrapped in sunshine on a cold day.</p>
                 </div>
                 <div class="love-card reveal-stagger" style="--stagger: 2">
                     <div class="love-icon" aria-hidden="true">💪</div>
                     <h3>Your Strength</h3>
-                    <p>You are so much stronger than you know. The way you face every challenge with grace and courage inspires me every single day.</p>
+                    <p>The way you face every challenge with grace and courage inspires me.</p>
                 </div>
                 <div class="love-card reveal-stagger" style="--stagger: 3">
                     <div class="love-icon" aria-hidden="true">😂</div>
                     <h3>Your Laughter</h3>
-                    <p>That contagious, uncontrollable laugh of yours — it's the most beautiful sound. I'd do anything just to keep hearing it forever.</p>
+                    <p>That contagious laugh — I'd do anything just to keep hearing it forever.</p>
                 </div>
                 <div class="love-card reveal-stagger" style="--stagger: 4">
                     <div class="love-icon" aria-hidden="true">🧠</div>
                     <h3>Your Mind</h3>
-                    <p>Your intelligence, your curiosity, the way you think about the world — every conversation with you makes me fall in love all over again.</p>
+                    <p>Every conversation with you makes me fall in love all over again.</p>
                 </div>
                 <div class="love-card reveal-stagger" style="--stagger: 5">
                     <div class="love-icon" aria-hidden="true">💕</div>
                     <h3>Your Love</h3>
-                    <p>The way you love me — patiently, fiercely, completely. I didn't know love could feel this safe and beautiful until you.</p>
+                    <p>I didn't know love could feel this safe and beautiful until you.</p>
                 </div>
             </div>
         </div>
@@ -267,8 +322,11 @@
     <!-- ============ SECTION 6: FOOTER ============ -->
     <footer id="footer" class="footer">
         <div class="footer-hearts" id="footerHearts" aria-hidden="true"></div>
-        <p class="footer-text">Made with all my love, just for you Anu ❤️</p>
-        <p class="footer-subtext">You are my today and all of my tomorrows</p>
+        <div class="footer-content">
+            <div class="footer-infinity">∞</div>
+            <p class="footer-text">Made with all my love, just for you Anu ❤️</p>
+            <p class="footer-subtext">You are my today and all of my tomorrows</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
